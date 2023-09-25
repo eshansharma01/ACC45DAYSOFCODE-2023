@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n,b;
+        cin>>n>>b;
+        int am=0;
+        int w,h,p;
+        while(n--)
+        {
+            cin>>w>>h>>p;
+            if(p<=b && w*h>am)
+            am=w*h;
+        }
+        if(am!=0)
+        cout<<am<<endl;
+        else
+        cout<<"no tablet"<<endl;
+        
+    }
+	return 0;
+}
