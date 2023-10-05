@@ -1,0 +1,46 @@
+#include <iostream>
+using namespace std;
+
+int digitsum(int m)
+{
+    int num=m,sum=0,i;
+    while(m!=0)
+    {
+        i=m%10;
+        m=m/10;
+        sum=sum+i;
+    }
+    return sum;
+}
+
+int main() 
+{
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int n;
+	    cin>>n;
+	    int N;
+	    N=digitsum(n);
+	    if(N%2==0)
+	    {
+	        while(N%2==0)
+	        {
+	            n++;
+	            N=digitsum(n);
+	        }
+	    }
+	    else
+	    {
+	        while(N%2!=0)
+	        {
+	            n++;
+	            N=digitsum(n);
+	        }
+	    }
+	    cout<<n<<endl;
+	    
+	}
+	return 0;
+}
