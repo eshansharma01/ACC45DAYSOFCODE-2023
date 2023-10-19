@@ -1,0 +1,69 @@
+#include <iostream>
+using namespace std;
+
+int max3(int x,int y,int z);
+int maxscore(int x,int y,int z);
+int num(int x,int y,int z);
+int main() 
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int a1,a2,a3,b1,b2,b3;
+        cin>>a1>>a2>>a3>>b1>>b2>>b3;
+        if(maxscore(a1,a2,a3)>maxscore(b1,b2,b3))
+        cout<<"Alice"<<endl;
+        else if(maxscore(a1,a2,a3)<maxscore(b1,b2,b3))
+        cout<<"Bob"<<endl;
+        else
+        cout<<"Tie"<<endl;
+        
+    }
+    return 0;
+}
+
+int max(int x,int y,int z)
+{
+    if(x>=y && x>=z)
+    return x;
+    else if(y>=x && y>=z)
+    return y;
+    else 
+    return z;
+}
+
+int maxscore(int x,int y,int z)
+{
+    int m=max(x,y,z);
+    if(m==x)
+    {
+        if(num(x,y,z)>=num(x,z,y))
+        return num(x,y,z);
+        else
+        return num(x,z,y);
+    }
+    else if(m==y)
+    {
+        if(num(y,z,x)>=num(y,x,z))
+        return num(y,z,x);
+        else
+        return num(y,x,z);
+    }
+    else
+    {
+        if(num(z,y,x)>=num(z,x,y))
+        return num(z,y,x);
+        else
+        return num(z,x,y);
+    }
+    
+}
+int num(int x,int y,int z)
+{
+    int r=0;
+    r=r*10+x;
+    r=r*10+y;
+    r=r*10+z;
+    return r;
+}
