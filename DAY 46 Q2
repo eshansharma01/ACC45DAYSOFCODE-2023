@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() 
+{
+	int t;
+	cin>>t;
+	while(t--)
+{
+	    long n;
+	    cin>>n;
+	    long a[n];
+	    for(long i=0;i<n;i++){
+	        cin>>a[i];
+	    }
+	    long score=0,diff;
+	    for(long i=0;i<n-1;i++){
+	      diff  =a[i+1]-a[i];
+	      score+=abs(diff)-1;
+	    }
+	    cout<<score<<endl;
+	}
+	return 0;
+}
